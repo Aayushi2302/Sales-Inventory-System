@@ -82,7 +82,7 @@ public class productChoice extends JFrame {
 		JButton btn2 = new JButton("Enter Purchase Details");
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Purchase ob = new Purchase();
+				purchase ob = new purchase();
 				ob.setVisible(true);
 			}
 		});
