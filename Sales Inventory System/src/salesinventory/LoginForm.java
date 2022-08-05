@@ -22,13 +22,14 @@ import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JMenuBar;
+import javax.swing.JPasswordField;
 
 
 public class LoginForm extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField userInput;
-	private JTextField passwordInput;
+	private JPasswordField passwordInput;
 
 	/**
 	 * Launch the application.
@@ -50,6 +51,9 @@ public class LoginForm extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginForm() {
+		setTitle("Login Page");
+		setResizable(false);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 907, 660);
 		contentPane = new JPanel();
@@ -83,39 +87,57 @@ public class LoginForm extends JFrame {
 		contentPane.add(userInput);
 		userInput.setColumns(10);
 		
-		passwordInput = new JTextField();
-		passwordInput.setFont(new Font("Malgun Gothic", Font.BOLD, 30));
-		passwordInput.setColumns(10);
-		passwordInput.setBounds(369, 345, 264, 39);
-		contentPane.add(passwordInput);
+		JLabel lb1 = new JLabel("");
+		lb1.setFont(new Font("Malgun Gothic", Font.PLAIN, 15));
+		lb1.setBounds(369, 301, 222, 19);
+		contentPane.add(lb1);
+		
+		JLabel lb2 = new JLabel("");
+		lb2.setFont(new Font("Malgun Gothic", Font.PLAIN, 15));
+		lb2.setBounds(369, 392, 222, 19);
+		contentPane.add(lb2);
 		
 		JButton submit = new JButton("Submit");
 		submit.setForeground(new Color(25, 25, 112));
 		submit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				try {
+				if(userInput.getText().trim().isEmpty())
+					lb1.setText("Username is empty");
+				if(passwordInput.getText().trim().isEmpty())
+					lb2.setText("Password is empty");
+				
+				
+				if(lb1.getText().trim().isEmpty() && lb2.getText().trim().isEmpty()) {
 					
-					Class.forName("com.mysql.cj.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost/salesinventory","root","mysql@aayushi");
-					
-					String Username = userInput.getText();
-					String Password = passwordInput.getText();
-					
-					PreparedStatement ps = con.prepareStatement("SELECT * FROM Login WHERE USERNAME='"+Username+"' and PASSWORD='"+Password+"'");
-					
-					ResultSet rs = ps.executeQuery();
-					boolean flag = rs.next();
-					
-					if(flag) {
-						sales obj = new sales();
-						obj.setVisible(true);
+					try {
+						
+						Class.forName("com.mysql.cj.jdbc.Driver");
+						Connection con = DriverManager.getConnection("jdbc:mysql://localhost/salesinventory","root","");
+						
+						String Username = userInput.getText();
+						String Password = passwordInput.getText();
+						
+						PreparedStatement ps = con.prepareStatement("SELECT * FROM Register WHERE USERNAME='"+Username+"' and PASSWORD='"+Password+"'");
+						
+						ResultSet rs = ps.executeQuery();
+						boolean flag = rs.next();
+						
+						if(flag) {
+							mainPage obj = new mainPage();
+							obj.setVisible(true);
+						}
 					}
+					
+					catch(Exception exp) {
+						System.out.println(exp);
+					}
+					
+					
+					
+					
 				}
 				
-				catch(Exception exp) {
-					System.out.println(exp);
-				}
 			}
 		
 		});
@@ -131,21 +153,11 @@ public class LoginForm extends JFrame {
 		lblEnterDetails.setBounds(244, 168, 449, 42);
 		contentPane.add(lblEnterDetails);
 		
-		JButton btnNewButton_1 = new JButton("->");
-		btnNewButton_1.setEnabled(false);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnNewButton_1.setBounds(67, 10, 59, 42);
-		contentPane.add(btnNewButton_1);
+		passwordInput = new JPasswordField();
+		passwordInput.setFont(new Font("Malgun Gothic", Font.PLAIN, 30));
+		passwordInput.setBounds(369, 343, 264, 39);
+		contentPane.add(passwordInput);
 		
-		JButton btnNewButton_1_1 = new JButton("<-");
-		btnNewButton_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				salesChoice ob = new salesChoice();
-				ob.setVisible(true);
-			}
-		});
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnNewButton_1_1.setBounds(10, 10, 59, 42);
-		contentPane.add(btnNewButton_1_1);
+		
 	}
 }

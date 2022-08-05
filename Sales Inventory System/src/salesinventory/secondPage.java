@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
-public class salesChoice extends JFrame {
+public class secondPage extends JFrame {
 
 	private JPanel contentPane;
 
@@ -25,7 +25,7 @@ public class salesChoice extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					salesChoice frame = new salesChoice();
+					secondPage frame = new secondPage();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,10 @@ public class salesChoice extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public salesChoice() {
+	public secondPage() {
+		setTitle("Register-Login Page");
+		setResizable(false);
+		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 851, 617);
 		contentPane = new JPanel();
@@ -46,10 +49,11 @@ public class salesChoice extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblSalesRecords = new JLabel("Sales Records");
+		JLabel lblSalesRecords = new JLabel("Welcome to Sales Inventory System");
+		lblSalesRecords.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSalesRecords.setForeground(new Color(25, 25, 112));
-		lblSalesRecords.setFont(new Font("Malgun Gothic", Font.BOLD, 50));
-		lblSalesRecords.setBounds(255, 64, 340, 53);
+		lblSalesRecords.setFont(new Font("Malgun Gothic", Font.BOLD, 42));
+		lblSalesRecords.setBounds(33, 63, 764, 53);
 		contentPane.add(lblSalesRecords);
 		
 		JButton btnLogin = new JButton("Login");
