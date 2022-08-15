@@ -40,7 +40,6 @@ public class secondPage extends JFrame {
 	public secondPage() {
 		setTitle("Register-Login Page");
 		setResizable(false);
-		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 851, 617);
 		contentPane = new JPanel();
@@ -61,7 +60,7 @@ public class secondPage extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				LoginForm ob = new LoginForm();
+				loginForm ob = new loginForm();
 				ob.setVisible(true);
 				
 			}

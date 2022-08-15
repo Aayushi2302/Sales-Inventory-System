@@ -40,7 +40,6 @@ public class mainPage extends JFrame {
 	public mainPage() {
 		setTitle("Sales Inventory System");
 		setResizable(false);
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 868, 652);
 		contentPane = new JPanel();
@@ -83,6 +82,12 @@ public class mainPage extends JFrame {
 		contentPane.add(btn2);
 		
 		JButton btn3 = new JButton("Admin");
+		btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				adminMain ob = new adminMain();
+				ob.setVisible(true);
+			}
+		});
 		btn3.setForeground(new Color(25, 25, 112));
 		btn3.setFont(new Font("Malgun Gothic", Font.BOLD, 30));
 		btn3.setBounds(327, 477, 208, 53);

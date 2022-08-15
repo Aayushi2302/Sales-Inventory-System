@@ -17,6 +17,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
+
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -59,7 +61,6 @@ public class registerationForm extends JFrame {
 	public registerationForm() {
 		setTitle("Register Page");
 		setResizable(false);
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 955, 732);
 		contentPane = new JPanel();
@@ -210,10 +211,6 @@ public class registerationForm extends JFrame {
 		t4 = new JPasswordField();
 		t4.setBounds(362, 489, 194, 28);
 		contentPane.add(t4);
-		
-		
-		
-		
 
 		JLabel lblEnterDetails_1 = new JLabel("Enter details");
 		lblEnterDetails_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -275,6 +272,21 @@ public class registerationForm extends JFrame {
 					lb6.setText("Password is empty");
 				if(t5.getText().trim().isEmpty())
 					lb7.setText("Email is empty");
+				
+				int delay = 3000;
+				Timer tm = new Timer(delay,event->{
+					lb1.setText("");
+					lb2.setText("");
+					lb3.setText("");
+					lb4.setText("");
+					lb5.setText("");
+					lb6.setText("");
+					lb7.setText("");
+				});
+				
+				tm.setRepeats(false);
+				tm.start();
+				
 					
 				if(lb1.getText().trim().isEmpty() && lb2.getText().trim().isEmpty() && lb3.getText().trim().isEmpty() && lb4.getText().trim().isEmpty() && lb5.getText().trim().isEmpty() && lb6.getText().trim().isEmpty() && lb7.getText().trim().isEmpty()) {
 					

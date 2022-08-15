@@ -21,11 +21,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.JMenuBar;
 import javax.swing.JPasswordField;
 
 
-public class LoginForm extends JFrame {
+public class loginForm extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField userInput;
@@ -38,7 +39,7 @@ public class LoginForm extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginForm frame = new LoginForm();
+					loginForm frame = new loginForm();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,10 +51,9 @@ public class LoginForm extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LoginForm() {
+	public loginForm() {
 		setTitle("Login Page");
 		setResizable(false);
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 907, 660);
 		contentPane = new JPanel();
@@ -107,6 +107,13 @@ public class LoginForm extends JFrame {
 				if(passwordInput.getText().trim().isEmpty())
 					lb2.setText("Password is empty");
 				
+				int delay = 3000;
+				Timer tm = new Timer(delay,event->{
+					lb1.setText("");
+					lb2.setText("");
+				});
+				tm.setRepeats(false);
+				tm.start();
 				
 				if(lb1.getText().trim().isEmpty() && lb2.getText().trim().isEmpty()) {
 					

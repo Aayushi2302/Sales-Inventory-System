@@ -10,6 +10,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -45,6 +46,8 @@ public class productDetails extends JFrame {
 	 * Create the frame.
 	 */
 	public productDetails() {
+		setTitle("Register Product");
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 982, 720);
 		contentPane = new JPanel();
@@ -129,6 +132,17 @@ public class productDetails extends JFrame {
 					l2.setText("Product Name is empty");
 				if(t3.getText().trim().isEmpty())
 					l3.setText("Organization is empty");
+				
+				int delay = 3000;
+				Timer tm = new Timer(delay, event->{
+					
+					l1.setText("");
+					l2.setText("");
+					l3.setText("");
+				});
+				
+				tm.setRepeats(false);
+				tm.start();
 				
 				if(l1.getText().trim().isEmpty() && l2.getText().trim().isEmpty() && l3.getText().trim().isEmpty()) {
 					

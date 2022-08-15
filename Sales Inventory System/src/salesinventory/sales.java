@@ -1,6 +1,5 @@
 package salesinventory;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,6 +9,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import com.toedter.calendar.JDateChooser;
@@ -18,27 +18,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
-import java.awt.Window.Type;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JMenuBar;
 import java.sql.ResultSet;
-import javax.swing.SwingConstants;
-import java.util.*;
-import javax.swing.JScrollBar;
-import com.toedter.components.JSpinField;
 import javax.swing.JSpinner;
-import javax.swing.SpinnerDateModel;
 import javax.swing.SpinnerListModel;
-import javax.swing.SpinnerNumberModel;
+
 
 public class sales extends JFrame {
 
@@ -215,6 +198,18 @@ public class sales extends JFrame {
 					l4.setText("Sales Date is empty");
 				if(t4.getText().trim().isEmpty())
 					l5.setText("Employee Id is empty");
+				
+				int delay = 3000;
+				Timer tm = new Timer(delay, event->{
+					l1.setText("");
+					l2.setText("");
+					l3.setText("");
+					l4.setText("");
+					l5.setText("");
+				});
+				
+				tm.setRepeats(false);
+				tm.start();
 				
 				if(l1.getText().trim().isEmpty() && l2.getText().trim().isEmpty() && l3.getText().trim().isEmpty() && l4.getText().trim().isEmpty() && l5.getText().trim().isEmpty()) {
 					

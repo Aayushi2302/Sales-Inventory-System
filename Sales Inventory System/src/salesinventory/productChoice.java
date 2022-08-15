@@ -38,6 +38,8 @@ public class productChoice extends JFrame {
 	 * Create the frame.
 	 */
 	public productChoice() {
+		setTitle("Purchase");
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 997, 697);
 		contentPane = new JPanel();
@@ -82,7 +84,7 @@ public class productChoice extends JFrame {
 		JButton btn2 = new JButton("Enter Purchase Details");
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Purchase ob = new Purchase();
+				purchase ob = new purchase();
 				ob.setVisible(true);
 			}
 		});
