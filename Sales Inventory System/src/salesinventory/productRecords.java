@@ -21,6 +21,7 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 
 
@@ -95,6 +96,12 @@ public class productRecords extends JFrame {
 						colSchema[i] = rsmd.getColumnName(i+1);
 					model.setColumnIdentifiers(colSchema);
 					
+					table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+					TableColumnModel colModel = table.getColumnModel();
+					colModel.getColumn(0).setPreferredWidth(120);
+					colModel.getColumn(1).setPreferredWidth(280);
+					colModel.getColumn(2).setPreferredWidth(320);
+					
 					String proId,proName,proOrg;
 					
 					while(rs.next()) {
@@ -105,6 +112,7 @@ public class productRecords extends JFrame {
 						String[] rowRecord = {proId,proName,proOrg};
 						model.addRow(rowRecord);
 					}
+					table.setRowHeight(25);
 				}
 				catch(Exception exp) {
 					System.out.println(exp);

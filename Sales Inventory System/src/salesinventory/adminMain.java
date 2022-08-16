@@ -71,19 +71,25 @@ public class adminMain extends JFrame {
 		});
 		btnDeleteDetails.setForeground(new Color(25, 25, 112));
 		btnDeleteDetails.setFont(new Font("Malgun Gothic", Font.BOLD, 30));
-		btnDeleteDetails.setBounds(404, 290, 247, 53);
+		btnDeleteDetails.setBounds(388, 290, 269, 53);
 		contentPane.add(btnDeleteDetails);
 		
 		JButton btnUpadteDetails = new JButton("Update Details");
 		btnUpadteDetails.setForeground(new Color(25, 25, 112));
 		btnUpadteDetails.setFont(new Font("Malgun Gothic", Font.BOLD, 30));
-		btnUpadteDetails.setBounds(404, 417, 247, 53);
+		btnUpadteDetails.setBounds(388, 415, 269, 53);
 		contentPane.add(btnUpadteDetails);
 		
-		JButton btnPrintDetails = new JButton("Print Details");
+		JButton btnPrintDetails = new JButton("Show Details");
+		btnPrintDetails.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				displayWindow obj = new displayWindow();
+				obj.setVisible(true);
+			}
+		});
 		btnPrintDetails.setForeground(new Color(25, 25, 112));
 		btnPrintDetails.setFont(new Font("Malgun Gothic", Font.BOLD, 30));
-		btnPrintDetails.setBounds(404, 541, 247, 53);
+		btnPrintDetails.setBounds(388, 539, 269, 53);
 		contentPane.add(btnPrintDetails);
 	}
 }

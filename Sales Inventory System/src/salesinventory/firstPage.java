@@ -74,18 +74,5 @@ public class firstPage extends JFrame {
 		btn.setBounds(395, 390, 139, 52);
 		contentPane.add(btn);
 		
-		JLabel lblNewLabel_1 = new JLabel("Project By");
-		lblNewLabel_1.setForeground(new Color(25, 25, 112));
-		lblNewLabel_1.setFont(new Font("Malgun Gothic", Font.BOLD, 25));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(340, 544, 266, 52);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Aayushi Sharma");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setForeground(new Color(25, 25, 112));
-		lblNewLabel_1_1.setFont(new Font("Malgun Gothic", Font.PLAIN, 25));
-		lblNewLabel_1_1.setBounds(340, 586, 266, 52);
-		contentPane.add(lblNewLabel_1_1);
 	}
 }

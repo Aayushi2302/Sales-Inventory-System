@@ -52,7 +52,7 @@ public class displayWindow extends JFrame {
 		lblShowDetails.setHorizontalAlignment(SwingConstants.CENTER);
 		lblShowDetails.setForeground(new Color(25, 25, 112));
 		lblShowDetails.setFont(new Font("Malgun Gothic", Font.BOLD, 50));
-		lblShowDetails.setBounds(244, 56, 485, 68);
+		lblShowDetails.setBounds(255, 72, 485, 68);
 		contentPane.add(lblShowDetails);
 		
 		JButton btnShowEmployeeDetails = new JButton("Show Employee Details");
@@ -65,7 +65,7 @@ public class displayWindow extends JFrame {
 		});
 		btnShowEmployeeDetails.setForeground(new Color(25, 25, 112));
 		btnShowEmployeeDetails.setFont(new Font("Malgun Gothic", Font.BOLD, 30));
-		btnShowEmployeeDetails.setBounds(304, 193, 394, 53);
+		btnShowEmployeeDetails.setBounds(304, 269, 394, 53);
 		contentPane.add(btnShowEmployeeDetails);
 		
 		JButton btnShowProductDetails = new JButton("Show Product Details");
@@ -78,33 +78,7 @@ public class displayWindow extends JFrame {
 		});
 		btnShowProductDetails.setForeground(new Color(25, 25, 112));
 		btnShowProductDetails.setFont(new Font("Malgun Gothic", Font.BOLD, 30));
-		btnShowProductDetails.setBounds(304, 306, 394, 53);
+		btnShowProductDetails.setBounds(304, 402, 394, 53);
 		contentPane.add(btnShowProductDetails);
-		
-		JButton btnShowSalesDetails = new JButton("Show Sales Details");
-		btnShowSalesDetails.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				salesRecords obj = new salesRecords();
-				obj.setVisible(true);
-			}
-		});
-		btnShowSalesDetails.setForeground(new Color(25, 25, 112));
-		btnShowSalesDetails.setFont(new Font("Malgun Gothic", Font.BOLD, 30));
-		btnShowSalesDetails.setBounds(304, 420, 394, 53);
-		contentPane.add(btnShowSalesDetails);
-		
-		JButton btnShowPurchaseDetails = new JButton("Show Purchase Details");
-		btnShowPurchaseDetails.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				purchaseRecords obj = new purchaseRecords();
-				obj.setVisible(true);
-			}
-		});
-		btnShowPurchaseDetails.setForeground(new Color(25, 25, 112));
-		btnShowPurchaseDetails.setFont(new Font("Malgun Gothic", Font.BOLD, 30));
-		btnShowPurchaseDetails.setBounds(304, 534, 394, 53);
-		contentPane.add(btnShowPurchaseDetails);
 	}
 }
